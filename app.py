@@ -60,6 +60,7 @@ def index():
             # Add text for dimensions and area
             c.drawString(50, 750, f"Triangle with base = {base} and height = {height}")
             c.drawString(50, 730, f"Area = {round(0.5 * base * height, 2)}")  # Area calculation
+            c.drawString(50, 710, f"Perimeter = {round(base + 2 * (height ** 2 + (base / 2) ** 2) ** 0.5, 2)}")  # Perimeter calculation
 
         c.save()
         return send_file(output_path, as_attachment=True)
@@ -122,6 +123,7 @@ def preview():
         # Add text for dimensions and area
         c.drawString(50, 750, f"Triangle with base = {base} and height = {height}")
         c.drawString(50, 730, f"Area = {round(0.5 * base * height, 2)}")  # Area calculation
+        c.drawString(50, 710, f"Perimeter = {round(base + 2 * (height ** 2 + (base / 2) ** 2) ** 0.5, 2)}")  # Perimeter calculation
 
     c.save()
     return send_file(output_path, as_attachment=False) # To review without downloading
