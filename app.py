@@ -1,29 +1,30 @@
-from flask import Flask, render_template, request, send_file
+from flask import Flask, request, send_file
+from flask_cors import CORS
 from models.pdf_generator import generate_pdf
 
 app = Flask(__name__)
+CORS(app, resources={r"/*": {"origins": "*"}})  # Allow all origins for testing
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/', methods=['POST'])
 def index():
-    if request.method == 'POST':
-        shape = request.form.get("shape")
-        size1 = int(request.form.get("size1"))
-        size2 = int(request.form.get("size2") or 0)
-        color = request.form.get("color")
+    data = request.get_json()
+    shape = data.get("shape")
+    size1 = int(data.get("size1"))
+    size2 = int(data.get("size2") or 0)
+    color = data.get("color")
 
-        # Generate PDF
-        pdf_path = generate_pdf(shape, size1, size2, color)
+    # Generate PDF
+    pdf_path = generate_pdf(shape, size1, size2, color)
 
-        return send_file(pdf_path, as_attachment=True)
-
-    return render_template('index.html')
+    return send_file(pdf_path, as_attachment=True)
 
 @app.route('/preview', methods=['POST'])
 def preview():
-    shape = request.form.get("shape")
-    size1 = int(request.form.get("size1"))
-    size2 = int(request.form.get("size2") or 0)
-    color = request.form.get("color")
+    data = request.get_json()
+    shape = data.get("shape")
+    size1 = int(data.get("size1"))
+    size2 = int(data.get("size2") or 0)
+    color = data.get("color")
 
     # Generate PDF for preview
     pdf_path = generate_pdf(shape, size1, size2, color, preview=True)
