@@ -45,3 +45,7 @@ npm start
 ```bash
 http://localhost:3000
 ```
+## Technologies Used
+**Backend:** Python, Flask, ReportLab
+**Frontend:** React, TypeScript, Axios
+**Styling:** CSS
