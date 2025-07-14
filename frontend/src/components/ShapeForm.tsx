@@ -9,7 +9,10 @@ interface ShapeFormProps {
     setSize2: (value: number) => void;
     color: string;
     setColor: (value: string) => void;
-    handleSubmit: (action: string) => void;
+    generatePDF: (
+        data: { shape: string; size1: number; size2: number; color: string },
+        action: string
+    ) => void;
 }
 
 const ShapeForm: React.FC<ShapeFormProps> = ({
@@ -21,8 +24,13 @@ const ShapeForm: React.FC<ShapeFormProps> = ({
     setSize2,
     color,
     setColor,
-    handleSubmit,
+    generatePDF,
 }) => {
+    const handleSubmit = (action: string) => {
+        const data = { shape, size1, size2, color };
+        generatePDF(data, action);
+    };
+
     return (
         <form>
             <label>Shape:</label>
