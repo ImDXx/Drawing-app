@@ -5,54 +5,45 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #f0f0f0;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-color: #f0f0f0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.container {
+  display: flex;
+  /* Align form and canvas side by side */
+  gap: 40px;
+  /* Add spacing between form and canvas */
+  align-items: flex-start;
+  /* Align items at the top */
 }
 
 form {
   background-color: #ffffff;
-  /* White background for the form */
   padding: 20px;
-  /* Add padding inside the form */
   border-radius: 10px;
-  /* Rounded corners */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  /* Subtle shadow for depth */
-  text-align: center;
-  /* Center-align text inside the form */
+  width: 330px;
+  height: 470px;
+  /* Set a fixed width for the form */
 }
 
 form label {
   display: block;
-  /* Make labels appear on separate lines */
   margin-bottom: 10px;
-  /* Add spacing below labels */
   font-weight: bold;
-  /* Make labels bold */
 }
 
 form input,
 form select {
   margin: 10px 0;
-  /* Add spacing between inputs */
   padding: 10px;
-  /* Add padding inside inputs */
-  width: 100%;
-  /* Make inputs take full width */
-  max-width: 300px;
-  /* Limit the width of inputs */
+  width: 90%;
   border: 1px solid #ccc;
-  /* Add a border */
   border-radius: 5px;
-  /* Rounded corners for inputs */
 }
 
 form button {
@@ -67,5 +58,14 @@ form button {
 
 form button:hover {
   background-color: #0056b3;
-  /* Darker blue on hover */
+}
+
+canvas {
+  border: 1px solid black;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  width: 511px;
+  height: 511px;
+  /* Same height as the form */
 }

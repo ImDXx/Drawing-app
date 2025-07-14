@@ -9,10 +9,7 @@ interface ShapeFormProps {
     setSize2: (value: number) => void;
     color: string;
     setColor: (value: string) => void;
-    generatePDF: (
-        data: { shape: string; size1: number; size2: number; color: string },
-        action: string
-    ) => void;
+    onSubmit: (action: string) => void;
 }
 
 const ShapeForm: React.FC<ShapeFormProps> = ({
@@ -24,13 +21,8 @@ const ShapeForm: React.FC<ShapeFormProps> = ({
     setSize2,
     color,
     setColor,
-    generatePDF,
+    onSubmit,
 }) => {
-    const handleSubmit = (action: string) => {
-        const data = { shape, size1, size2, color };
-        generatePDF(data, action);
-    };
-
     return (
         <form>
             <label>Shape:</label>
@@ -46,8 +38,9 @@ const ShapeForm: React.FC<ShapeFormProps> = ({
             </label>
             <input
                 type="number"
-                value={size1}
+                value={size1 === 0 ? "" : size1}
                 onChange={(e) => setSize1(Number(e.target.value))}
+                placeholder="0"
                 required
             />
             <br />
@@ -57,8 +50,9 @@ const ShapeForm: React.FC<ShapeFormProps> = ({
                     <label>Height:</label>
                     <input
                         type="number"
-                        value={size2}
+                        value={size2 === 0 ? "" : size2}
                         onChange={(e) => setSize2(Number(e.target.value))}
+                        placeholder="0"
                         required
                     />
                     <br />
@@ -72,10 +66,10 @@ const ShapeForm: React.FC<ShapeFormProps> = ({
             </select>
             <br />
 
-            <button type="button" onClick={() => handleSubmit("download")}>
+            <button type="button" onClick={() => onSubmit("download")}>
                 Generate PDF (Download)
             </button>
-            <button type="button" onClick={() => handleSubmit("preview")}>
+            <button type="button" onClick={() => onSubmit("preview")}>
                 Preview (Without downloading)
             </button>
         </form>

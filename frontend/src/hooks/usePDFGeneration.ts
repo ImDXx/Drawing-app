@@ -7,12 +7,9 @@ const usePDFGeneration = () => {
             data: { shape: string; size1: number; size2: number; color: string },
             action: string
         ) => {
-            const endpoint =
-                action === "preview"
-                    ? "http://127.0.0.1:5000/preview"
-                    : "http://127.0.0.1:5000/";
+            const endpoint = "http://127.0.0.1:5000/generate";
             try {
-                const response = await axios.post(endpoint, data, {
+                const response = await axios.post(endpoint, { ...data, action }, {
                     responseType: "blob",
                 });
                 const fileURL = window.URL.createObjectURL(

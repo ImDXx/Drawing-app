@@ -11,6 +11,11 @@ const App: React.FC = () => {
 
   const { generatePDF } = usePDFGeneration();
 
+  const handleSubmit = (action: string) => {
+    const data = { shape, size1, size2, color };
+    generatePDF(data, action);
+  };
+
   return (
     <div className="container">
       <ShapeForm
@@ -22,7 +27,7 @@ const App: React.FC = () => {
         setSize2={setSize2}
         color={color}
         setColor={setColor}
-        generatePDF={generatePDF}
+        onSubmit={handleSubmit}
       />
       <ShapeCanvas shape={shape} size1={size1} size2={size2} color={color} />
     </div>
