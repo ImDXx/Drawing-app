@@ -2,11 +2,12 @@
 A python-based drawing app that allows users to create shapes (Rectangle, Circle, Triangle) and export as a PDF-file.
 
 ## Features
-- Draw shapes: Rectangle, Circle and Triangle.
-- Choose dimensions and fill color for the shapes.
-- Export the drawing as a downloadable PDF or preview the PDF.
+- **Real-Time Shape Rendering**: Draw shapes (Rectangle, Circle, Triangle) dynamically on the web.
+- **Customizable Dimensions and Colors**: Choose dimensions and fill colors for the shapes.
+- **PDF Export**: Generate a downloadable PDF report of the shapes.
+- **Preview Mode**: Preview the PDF before downloading.
 
-## Installation
+## Installation Backend
 1. Clone the repository
 ```bash
 git clone https://github.com/ImDXx/Drawing-app
@@ -19,13 +20,28 @@ cd drawing-app
 ```bash
 pip install flask reportlab
 ```
+## Installation Frontend
+1. Navigate to the fronend directory
+```bash
+cd frontend
+```
+2. Install Node.js dependencies
+```bash
+npm install
+```
 
 ## Usage
 1. Run the flask application
 ```bash
+cd drawing-app
 python app.py
 ```
-2. Open your browser and navigate to:
+2. Run the frontend
 ```bash
-http://127.0.0.1:5000
+cd frontend
+npm start
+```
+3. Open your browser and navigate to:
+```bash
+http://localhost:3000
 ```
