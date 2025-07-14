@@ -21,7 +21,7 @@ cd drawing-app
 pip install flask reportlab
 ```
 ## Installation Frontend
-1. Navigate to the fronend directory
+1. Navigate to the frontend directory
 ```bash
 cd frontend
 ```
