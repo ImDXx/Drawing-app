@@ -18,7 +18,8 @@ body {
   gap: 40px;
   /* Add spacing between form and canvas */
   align-items: flex-start;
-  /* Align items at the top */
+
+
 }
 
 form {
@@ -26,8 +27,8 @@ form {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 330px;
-  height: 470px;
+  width: 400px;
+  height: 600px;
   /* Set a fixed width for the form */
 }
 
@@ -41,7 +42,7 @@ form input,
 form select {
   margin: 10px 0;
   padding: 10px;
-  width: 90%;
+  width: 80%;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
@@ -56,6 +57,22 @@ form button {
   cursor: pointer;
 }
 
+form .button-container {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  gap: 10px;
+  text-align: left;
+}
+
+form button:last-child {
+  background-color: #ff4d4d;
+}
+
+form button:last-child:hover {
+  background-color: #d43f3f;
+}
+
 form button:hover {
   background-color: #0056b3;
 }
@@ -65,7 +82,6 @@ canvas {
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   background-color: #ffffff;
-  width: 511px;
-  height: 511px;
-  /* Same height as the form */
+  width: 450px;
+  height: 638px;
 }

@@ -23,6 +23,11 @@ const ShapeForm: React.FC<ShapeFormProps> = ({
     setColor,
     onSubmit,
 }) => {
+
+    const handleClear = () => {
+        setSize1(0);
+        setSize2(0);
+    };
     return (
         <form>
             <label>Shape:</label>
@@ -66,12 +71,17 @@ const ShapeForm: React.FC<ShapeFormProps> = ({
             </select>
             <br />
 
-            <button type="button" onClick={() => onSubmit("download")}>
-                Generate PDF (Download)
-            </button>
-            <button type="button" onClick={() => onSubmit("preview")}>
-                Preview (Without downloading)
-            </button>
+            <div className="button-container">
+                <button type="button" onClick={() => onSubmit("download")}>
+                    Generate PDF Report
+                </button>
+                <button type="button" onClick={() => onSubmit("preview")}>
+                    Preview
+                </button>
+                <button type="button" onClick={handleClear}>
+                    Clear
+                </button>
+            </div>
         </form>
     );
 };

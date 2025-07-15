@@ -5,7 +5,7 @@ import usePDFGeneration from "./hooks/usePDFGeneration";
 
 const App: React.FC = () => {
   const [shape, setShape] = useState("rectangle");
-  const [size1, setSize1] = useState(100);
+  const [size1, setSize1] = useState(100); /* Preset at 100 */
   const [size2, setSize2] = useState(100);
   const [color, setColor] = useState("blue");
 

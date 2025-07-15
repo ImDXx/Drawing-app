@@ -53,7 +53,7 @@ const ShapeCanvas: React.FC<ShapeCanvasProps> = ({ shape, size1, size2, color })
         drawShape();
     }, [shape, size1, size2, color]);
 
-    return <canvas ref={canvasRef} width={400} height={400} style={{ border: "1px solid black" }}></canvas>;
+    return <canvas ref={canvasRef} width={450} height={638} style={{ border: "1px solid black" }}></canvas>;
 };
 
 export default ShapeCanvas;
