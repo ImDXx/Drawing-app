@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useCallback, useEffect, useRef } from "react";
 
 interface ShapeCanvasProps {
     shape: string;
@@ -10,7 +10,7 @@ interface ShapeCanvasProps {
 const ShapeCanvas: React.FC<ShapeCanvasProps> = ({ shape, size1, size2, color }) => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
 
-    const drawShape = () => {
+    const drawShape = useCallback(() => {
         const canvas = canvasRef.current;
         if (!canvas) return;
 
@@ -47,11 +47,11 @@ const ShapeCanvas: React.FC<ShapeCanvasProps> = ({ shape, size1, size2, color })
             ctx.closePath();
             ctx.fill();
         }
-    };
+    }, [shape, size1, size2, color]);
 
     useEffect(() => {
         drawShape();
-    }, [shape, size1, size2, color]);
+    }, [drawShape]);
 
     return <canvas ref={canvasRef} width={450} height={638} style={{ border: "1px solid black" }}></canvas>;
 };
