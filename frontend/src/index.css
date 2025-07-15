@@ -85,3 +85,52 @@ canvas {
   width: 450px;
   height: 638px;
 }
+
+/* Navbar styles */
+.navbar {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #f0f0f0;
+  color: #000000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+.navbar-logo {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-item {
+  font-size: 16px;
+}
+
+.navbar-link {
+  text-decoration: none;
+  color: #000000;
+  transition: color 0.3s ease;
+}
+
+.navbar-link:hover {
+  color: #d4d4d4;
+}
+
+body {
+  padding-top: 60px;
+}

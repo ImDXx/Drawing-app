@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ShapeForm from "./components/ShapeForm";
 import ShapeCanvas from "./components/ShapeCanvas";
 import usePDFGeneration from "./hooks/usePDFGeneration";
+import Navbar from "./components/Navbar";
 
 const App: React.FC = () => {
   const [shape, setShape] = useState("rectangle");
@@ -17,20 +18,23 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="container">
-      <ShapeForm
-        shape={shape}
-        setShape={setShape}
-        size1={size1}
-        setSize1={setSize1}
-        size2={size2}
-        setSize2={setSize2}
-        color={color}
-        setColor={setColor}
-        onSubmit={handleSubmit}
-      />
-      <ShapeCanvas shape={shape} size1={size1} size2={size2} color={color} />
-    </div>
+    <>
+      <Navbar />
+      <div className="container">
+        <ShapeForm
+          shape={shape}
+          setShape={setShape}
+          size1={size1}
+          setSize1={setSize1}
+          size2={size2}
+          setSize2={setSize2}
+          color={color}
+          setColor={setColor}
+          onSubmit={handleSubmit}
+        />
+        <ShapeCanvas shape={shape} size1={size1} size2={size2} color={color} />
+      </div>
+    </>
   );
 };
 
